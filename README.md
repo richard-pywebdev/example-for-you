@@ -1,10 +1,24 @@
 # example-for-you
-Example FastAPI project in stages.
 
-# Branches
+## 01 Getting Started
 
+This is an example project for build FastAPI web applications. 
+
+### Usage
+
+Using Fedora 38 Linux. 
+
+### Install
+
+```commandline
+python3 -m venv venv
+. venv/bin/activate
+pip install --upgrade pip
+pip install -r non_ver_reqs.txt
 ```
-git checkout 01_getting_started
+
+### Run
+
+```commandline
+python main.py
 ```
-
-
