@@ -22,3 +22,9 @@ pip install -r non_ver_reqs.txt
 ```commandline
 python main.py
 ```
+
+### Localhost
+
+This version runs using SSL, and can be accessed at https://localhost/docs
+
+The self-signed CA certificate is included for importing into your system or browser. 
