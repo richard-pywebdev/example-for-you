@@ -1,9 +1,39 @@
+import time
+
 import uvicorn
-from fastapi import FastAPI
+from fastapi import FastAPI, Request
+from fastapi.middleware.cors import CORSMiddleware
+
 from api import health_api
 from config.settings import settings
 
 main_app = FastAPI()
+
+# CORS
+origins = [
+    "http://localhost:8000",
+    "https://localhost:8000",
+    "https://www.exampleforyou.net:8000",
+    "https://www.exampleforyou.net",
+]
+
+main_app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"]
+)
+
+
+# Middleware
+@main_app.middleware("http")
+async def add_process_time_header(request: Request, call_next):
+    start_time = time.time()
+    response = await call_next(request)
+    process_time = time.time() - start_time
+    response.headers["X-Process-Time"] = str(process_time)
+    return response
 
 
 def configure():
@@ -18,6 +48,9 @@ if __name__ == '__main__':
     configure()
     uvicorn.run(main_app,
                 host=settings.CONF_MAIN_APP_HOST,
-                port=settings.CONF_MAIN_APP_PORT)
+                port=settings.CONF_MAIN_APP_PORT,
+                log_level=settings.CONF_DEBUG_LEVEL,
+                ssl_keyfile=settings.CONF_SSL_KEYFILE,
+                ssl_certfile=settings.CONF_SSL_CERTFILE)
 else:
     configure()
