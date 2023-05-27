@@ -1,6 +1,6 @@
 # example-for-you
 
-## 01 Getting Started
+## 02 Getting Started Optional
 
 This is an example project for build FastAPI web applications. 
 
