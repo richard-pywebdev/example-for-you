@@ -6,6 +6,8 @@ Example FastAPI project in stages.
 ```
 git checkout 01_getting_started
 git checkout 02_getting_started_optional
+git checkout 03_database_sqlite
+git checkout 04_crud_apis
+git checkout 05_web_pages
 ```
-
 
