@@ -5,3 +5,8 @@ requests
 httpx
 sqlmodel
 alembic
+jinja2
+python-multipart
+markdown
+pillow
+readtime

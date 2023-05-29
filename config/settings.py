@@ -19,6 +19,10 @@ class Settings(BaseSettings):
 
     CONF_MAIN_APP_SQLITE = "sqlite:///mnt/db/exampleforyou.sqlite3"
 
+    CONF_MAIN_DOMAIN = "https://localhost"
+    CONF_IMAGE_UPLOADS_CONTEXT_PATH = "/uploads/"
+    CONF_IMAGE_UPLOADS_FILE_PATH = "mnt/uploads/"
+
     class Config:
         case_sensitive = True
 

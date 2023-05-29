@@ -3,11 +3,27 @@ import time
 import uvicorn
 from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
+from starlette.staticfiles import StaticFiles
+from starlette.exceptions import HTTPException as StarletteHTTPException
+from starlette.templating import Jinja2Templates
 
 from api import health_api, blog_apis
 from config.settings import settings
+from web.views import home_view, blog_views
 
 main_app = FastAPI()
+
+
+# To disable APIs
+# main_app = FastAPI(openapi_url=None)
+
+
+# Custom 404 page
+@main_app.exception_handler(StarletteHTTPException)
+async def custom_http_exception_handler(request, exc):
+    templates = Jinja2Templates('web/templates')
+    return templates.TemplateResponse("404.html", {"request": request, "context": "404"})
+
 
 # CORS
 origins = [
@@ -41,8 +57,13 @@ def configure():
 
 
 def configure_routing():
+    main_app.mount('/static', StaticFiles(directory='web/static'), name='static')
+    main_app.mount('/uploads', StaticFiles(directory=settings.CONF_IMAGE_UPLOADS_FILE_PATH), name='uploads')
     main_app.include_router(health_api.router, prefix=settings.CONF_API_V1_STR, tags=["health"])
     main_app.include_router(blog_apis.router, prefix=settings.CONF_API_V1_STR, tags=["blog_apis"])
+    main_app.include_router(home_view.router, tags=["web_views"])
+    main_app.include_router(blog_views.router, tags=["web_views"])
+
 
 if __name__ == '__main__':
     configure()
