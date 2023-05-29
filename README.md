@@ -1,6 +1,6 @@
 # example-for-you
 
-## 02 Getting Started Optional
+## 03 Database SQLite
 
 This is an example project for build FastAPI web applications. 
 

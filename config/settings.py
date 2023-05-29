@@ -17,6 +17,8 @@ class Settings(BaseSettings):
     CONF_SSL_KEYFILE = "mnt/certs/www.exampleforyou.net.key"
     CONF_SSL_CERTFILE = "mnt/certs/www.exampleforyou.net.crt"
 
+    CONF_MAIN_APP_SQLITE = "sqlite:///mnt/db/exampleforyou.sqlite3"
+
     class Config:
         case_sensitive = True
 
