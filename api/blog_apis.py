@@ -22,7 +22,7 @@ async def create_blogpost_api(blogpost_in: BlogPostIn, session: Session = Depend
 # Read
 @router.get('/blog', status_code=status.HTTP_200_OK)
 async def get_blogposts_api(limit: int | None = None, session: Session = Depends(get_session_db)) -> list:
-    query = select(BlogPost).limit(limit).order_by(BlogPost.created_date.desc())
+    query = select(BlogPost).where(BlogPost.published == True).limit(limit).order_by(BlogPost.created_date.desc())
     return session.exec(query).all()
 
 
