@@ -4,7 +4,7 @@ import uvicorn
 from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 
-from api import health_api
+from api import health_api, blog_apis
 from config.settings import settings
 
 main_app = FastAPI()
@@ -42,7 +42,7 @@ def configure():
 
 def configure_routing():
     main_app.include_router(health_api.router, prefix=settings.CONF_API_V1_STR, tags=["health"])
-
+    main_app.include_router(blog_apis.router, prefix=settings.CONF_API_V1_STR, tags=["blog_apis"])
 
 if __name__ == '__main__':
     configure()
