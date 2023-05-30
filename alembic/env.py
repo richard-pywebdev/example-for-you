@@ -6,6 +6,7 @@ from sqlalchemy import pool
 from alembic import context
 from sqlmodel import SQLModel
 from db.schemas.blog_schemas import BlogPost
+from db.schemas.captcha_schemas import Captcha
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.

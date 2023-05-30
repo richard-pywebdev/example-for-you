@@ -1,0 +1,7 @@
+export CONF_MAIL_USERNAME=""
+export CONF_MAIL_PASSWORD=""
+export CONF_MAIL_FROM=""
+export CONF_MAIL_PORT="587"
+export CONF_MAIL_SERVER="email-smtp.eu-west-1.amazonaws.com"
+export CONF_MAIL_FROM_NAME="Exampleforyou Website"
+export CONF_MAIL_DEV_MODE=False

@@ -1,6 +1,6 @@
 # example-for-you
 
-## 05 Web Pages
+## 05 Contact Form
 
 This is an example project for build FastAPI web applications. 
 
@@ -16,6 +16,16 @@ python3 -m venv venv
 pip install --upgrade pip
 pip install -r non_ver_reqs.txt
 ```
+
+### Environment Variables
+
+Included is a file `dotenv` which you need to update with real credentials and source.
+
+```
+source dotenv
+```
+
+
 
 ### Run
 

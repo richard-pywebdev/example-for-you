@@ -23,6 +23,18 @@ class Settings(BaseSettings):
     CONF_IMAGE_UPLOADS_CONTEXT_PATH = "/uploads/"
     CONF_IMAGE_UPLOADS_FILE_PATH = "mnt/uploads/"
 
+    CONF_MAIL_USERNAME = ""
+    CONF_MAIL_PASSWORD = ""
+    CONF_MAIL_FROM = "richard@exampleforyou.net"
+    CONF_MAIL_PORT = "587"
+    CONF_MAIL_SERVER = "email-smtp.eu-west-1.amazonaws.com"
+    CONF_MAIL_FROM_NAME = "Exampleforyou Website"
+    CONF_MAIL_DEV_MODE = True
+
+    CONF_CAPTCHA_CONTEXT_PATH = "/captcha/"
+    CONF_CAPTCHA_FILE_PATH = "mnt/captcha/"
+
+
     class Config:
         case_sensitive = True
 
